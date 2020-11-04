@@ -23,7 +23,7 @@ public class MainApplication {
         if (currency != null) {
             System.out.println(" Enter amount  for Withdraw");
             withdraw = scanner.nextInt();
-            enteringRightAmount(withdraw);
+            validateInput(withdraw);
             currency.calculateTotalAmount();
             currency.withDrawcalculation(withdraw);
         } else {
@@ -34,7 +34,7 @@ public class MainApplication {
         }
     }
 
-    private static void enteringRightAmount(int withdraw) {
+    private static void validateInput(int withdraw) {
 
         while (withdraw % 5 != 0) {
             {
