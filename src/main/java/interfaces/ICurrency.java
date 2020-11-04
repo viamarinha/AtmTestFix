@@ -1,9 +1,11 @@
 package interfaces;
 
+import java.util.Map;
+
 public interface ICurrency {
 
-    public void calculateTotalAmount();
+     int calculateTotalAmount();
 
-    public void withDrawcalculation(int amount);
+     Map<String, Integer> withdrawCalculation(int amount);
 
 }
