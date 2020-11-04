@@ -1,8 +1,9 @@
 package mainapplication;
 
-import factory.AtmFactory;
+import factories.AtmCurrencyFactory;
 import interfaces.ICurrency;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class MainApplication {
@@ -19,13 +20,14 @@ public class MainApplication {
         Scanner scanner = new Scanner(System.in);
         System.out.println("In which currency you'd like to have a withdraw \n for us money press USD \n for canadian press CAD");
         String currencyChoice = scanner.nextLine();
-        ICurrency currency = AtmFactory.getCurrencyType(currencyChoice);
+        ICurrency currency = AtmCurrencyFactory.getCurrencyType(currencyChoice);
         if (currency != null) {
+            System.out.println("Available amount at ATM is : " +currency.calculateTotalAmount());
             System.out.println(" Enter amount  for Withdraw");
             withdraw = scanner.nextInt();
             validateInput(withdraw);
-            currency.calculateTotalAmount();
-            currency.withDrawcalculation(withdraw);
+            Map<String, Integer> finalResults = currency.withdrawCalculation(withdraw);
+            System.out.println("Total amount is " + withdraw +"\n" + finalResults);
         } else {
             System.out.println("Invalid currency \n Press any key to continue");
             scanner.nextLine();
