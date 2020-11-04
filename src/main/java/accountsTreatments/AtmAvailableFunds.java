@@ -3,11 +3,11 @@ package accountsTreatments;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AtmStatus {
+public class AtmAvailableFunds {
 
     public Map<String, Integer>  availableMoney = null;
 
-    public AtmStatus() {
+    public AtmAvailableFunds() {
         this.availableMoney = new HashMap();
         availableMoney.put("5", 10);
         availableMoney.put("10" , 10);
