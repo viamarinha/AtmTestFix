@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class AtmAvailableFunds {
 
-    public Map<String, Integer>  availableMoney = null;
+    private  Map<String, Integer>  availableMoney = null;
 
     public AtmAvailableFunds() {
         this.availableMoney = new HashMap();
