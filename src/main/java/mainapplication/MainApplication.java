@@ -18,14 +18,14 @@ public class MainApplication {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("In which currency you'd like to have a withdraw \n for us money press USD \n for canadian press CAD");
-        String currency = scanner.nextLine();
-        ICurrency Currency = AtmFactory.getCurrencyType(currency);
-        if (Currency != null) {
+        String currencyChoice = scanner.nextLine();
+        ICurrency currency = AtmFactory.getCurrencyType(currencyChoice);
+        if (currency != null) {
             System.out.println(" Enter amount  for Withdraw");
             withdraw = scanner.nextInt();
             enteringRightAmount(withdraw);
-            Currency.calculateTotalAmount();
-            Currency.withDrawcalculation(withdraw);
+            currency.calculateTotalAmount();
+            currency.withDrawcalculation(withdraw);
         } else {
             System.out.println("Invalid currency \n Press any key to continue");
             scanner.nextLine();
