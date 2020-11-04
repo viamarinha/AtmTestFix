@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface ICureency {
+public interface ICurrency {
 
     public void calculateTotalAmount();
 
