@@ -1,4 +1,4 @@
-package accountsTreatments;
+package accountstreatments;
 
 import java.util.HashMap;
 import java.util.Map;
