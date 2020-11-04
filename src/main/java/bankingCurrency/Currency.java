@@ -3,11 +3,13 @@ package bankingCurrency;
 import accountstreatments.AtmAvailableFunds;
 import interfaces.ICurrency;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Currency implements ICurrency {
 
     private int totalAvailableAmount;
+
     int initHundredGroup = 0;
     int initFiftyGroup = 0;
     int initTenGroup = 0;
@@ -20,16 +22,13 @@ public class Currency implements ICurrency {
 
     private int totalAmount = 0;
 
-    public void calculateTotalAmount() {
+    public int  calculateTotalAmount() {
 
         totalAvailableAmount = calculFromStatus();
+        return totalAvailableAmount;
     }
 
-    public void withDrawcalculation(int amount) {
-        withdrawcalculation(amount);
-    }
-
-    private void withdrawcalculation(int amount) {
+    public Map<String, Integer> withdrawCalculation(int amount) {
 
 
         while (amount >= 100 && initHundredGroup > 0) {
@@ -53,13 +52,13 @@ public class Currency implements ICurrency {
             amount = amount - 5;
         }
 
-        System.out.println("Take your amount "
-                + (initHundredGroupRes * 100 + initFiftyGroupRes * 50 + initTenGroupRes * 10 + initFiveGroupRes * 5));
-        System.out.println("Number of 100 bills is " + initHundredGroupRes);
-        System.out.println("Number of 50 bills is " + initFiftyGroupRes);
-        System.out.println("Number of 10 bills is " + initTenGroupRes);
-        System.out.println("Number of 5 bills is " + initFiveGroupRes);
+        Map<String, Integer> finalResult = new LinkedHashMap<>();
+        finalResult.put("Number of 100 bills is", initHundredGroupRes);
+        finalResult.put("Number of 50 bills is", initFiftyGroupRes);
+        finalResult.put("Number of 10 bills is", initTenGroupRes);
+        finalResult.put("Number of 5 bills is", initFiveGroupRes);
 
+        return finalResult;
 
     }
 
