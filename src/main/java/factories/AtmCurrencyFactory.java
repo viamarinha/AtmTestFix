@@ -1,10 +1,10 @@
-package factory;
+package factories;
 
 import bankingCurrency.CadCurrency;
 import bankingCurrency.UsdCurrency;
 import interfaces.ICurrency;
 
-public class AtmFactory {
+public class AtmCurrencyFactory {
 
     public static ICurrency getCurrencyType(String accountName){
 
