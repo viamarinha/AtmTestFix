@@ -1,3 +1,5 @@
+package mainapplication;
+
 import factory.AtmFactory;
 import interfaces.ICurrency;
 
