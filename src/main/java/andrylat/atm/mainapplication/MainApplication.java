@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class MainApplication {
 
-
     public static void main(String[] args) {
         initApplication();
     }
@@ -37,24 +36,25 @@ public class MainApplication {
 
     private static void interactingWithCustomer(Scanner scanner, CurrencyInterface currency) {
         AtmAvailableFunds atmAvailableFunds = new AtmAvailableFunds();
-        System.out.println("Available amount at ATM is : " + currency.calculateTotalAmount(atmAvailableFunds.getAvailableMoney()));
+        atmAvailableFunds.getAvailableMoney();
+        int availableFondsAtm = currency.calculateTotalAmount(atmAvailableFunds.getAvailableMoney());
+        System.out.println("Available amount at ATM is : " + availableFondsAtm);
         System.out.println(" Enter amount  for Withdraw");
         int withdraw = scanner.nextInt();
-        validateInput(withdraw);
+        withdraw = validateInput(withdraw, scanner, availableFondsAtm);
         Map<String, Integer> finalResults = currency.withdrawCalculation(withdraw);
         System.out.println("Total amount is " + withdraw + "\n" + finalResults);
     }
 
-    private static void validateInput(int withdraw) {
+    private static int validateInput(int withdraw, Scanner scanner, int availableFondsAtm) {
 
-        while (withdraw % 5 != 0) {
-            {
-                System.out.println("Please enter amount which is divisible by 5");
-                Scanner scanner = new Scanner(System.in);
-                withdraw = scanner.nextInt();
+        while (!(withdraw % 5 == 0) || withdraw > availableFondsAtm ) {
 
-            }
+            System.out.println("Please enter amount which is divisible by 5 or less then availableFonds from ATM");
+            withdraw = scanner.nextInt();
+
         }
+        return withdraw;
     }
 }
 
