@@ -1,15 +1,12 @@
 package andrylat.atm.bankingCurrency;
 
 
-
-
-import andrylat.atm.accountstreatments.AtmAvailableFunds;
-import andrylat.atm.interfaces.ICurrency;
+import andrylat.atm.interfaces.CurrencyInterface;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class Currency implements ICurrency {
+public class Currency implements CurrencyInterface {
 
     private int totalAvailableAmount;
 
@@ -25,9 +22,9 @@ public class Currency implements ICurrency {
 
     private int totalAmount = 0;
 
-    public int  calculateTotalAmount() {
+    public int calculateTotalAmount(Map<String, Integer> founds) {
 
-        totalAvailableAmount = calculFromStatus();
+        totalAvailableAmount = atmAvailableMoney(founds);
         return totalAvailableAmount;
     }
 
@@ -65,8 +62,8 @@ public class Currency implements ICurrency {
 
     }
 
-    private int calculFromStatus() {
-        Map<String, Integer> availableMoney = (new AtmAvailableFunds()).getAvailableMoney();
+    private int atmAvailableMoney(Map<String, Integer> founds) {
+        Map<String, Integer> availableMoney = founds;
 
 
         for (String key : availableMoney.keySet()) {
