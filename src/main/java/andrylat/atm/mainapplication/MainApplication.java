@@ -1,16 +1,14 @@
 package andrylat.atm.mainapplication;
 
 
-
+import andrylat.atm.accountstreatments.AtmAvailableFunds;
 import andrylat.atm.factories.AtmCurrencyFactory;
-import andrylat.atm.interfaces.ICurrency;
+import andrylat.atm.interfaces.CurrencyInterface;
 
 import java.util.Map;
 import java.util.Scanner;
 
 public class MainApplication {
-
-    private static int withdraw;
 
 
     public static void main(String[] args) {
@@ -22,20 +20,29 @@ public class MainApplication {
         Scanner scanner = new Scanner(System.in);
         System.out.println("In which currency you'd like to have a withdraw \n for us money press USD \n for canadian press CAD");
         String currencyChoice = scanner.nextLine();
-        ICurrency currency = AtmCurrencyFactory.getCurrencyType(currencyChoice);
+        CurrencyInterface currency = AtmCurrencyFactory.getCurrencyType(currencyChoice);
         if (currency != null) {
-            System.out.println("Available amount at ATM is : " +currency.calculateTotalAmount());
-            System.out.println(" Enter amount  for Withdraw");
-            withdraw = scanner.nextInt();
-            validateInput(withdraw);
-            Map<String, Integer> finalResults = currency.withdrawCalculation(withdraw);
-            System.out.println("Total amount is " + withdraw +"\n" + finalResults);
+            interactingWithCustomer(scanner, currency);
         } else {
-            System.out.println("Invalid currency \n Press any key to continue");
-            scanner.nextLine();
-            initApplication();
+            invalidCurrencySolution(scanner);
 
         }
+    }
+
+    private static void invalidCurrencySolution(Scanner scanner) {
+        System.out.println("Invalid currency \n Press any key to continue");
+        scanner.nextLine();
+        initApplication();
+    }
+
+    private static void interactingWithCustomer(Scanner scanner, CurrencyInterface currency) {
+        AtmAvailableFunds atmAvailableFunds = new AtmAvailableFunds();
+        System.out.println("Available amount at ATM is : " + currency.calculateTotalAmount(atmAvailableFunds.getAvailableMoney()));
+        System.out.println(" Enter amount  for Withdraw");
+        int withdraw = scanner.nextInt();
+        validateInput(withdraw);
+        Map<String, Integer> finalResults = currency.withdrawCalculation(withdraw);
+        System.out.println("Total amount is " + withdraw + "\n" + finalResults);
     }
 
     private static void validateInput(int withdraw) {
