@@ -1,8 +1,9 @@
-package factories;
+package andrylat.atm.factories;
 
-import bankingCurrency.CadCurrency;
-import bankingCurrency.UsdCurrency;
-import interfaces.ICurrency;
+
+import andrylat.atm.bankingCurrency.CadCurrency;
+import andrylat.atm.bankingCurrency.UsdCurrency;
+import andrylat.atm.interfaces.ICurrency;
 
 public class AtmCurrencyFactory {
 

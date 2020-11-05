@@ -1,4 +1,4 @@
-package interfaces;
+package andrylat.atm.interfaces;
 
 import java.util.Map;
 

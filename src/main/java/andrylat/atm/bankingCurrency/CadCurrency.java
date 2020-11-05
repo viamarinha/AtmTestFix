@@ -1,7 +1,7 @@
-package bankingCurrency;
+package andrylat.atm.bankingCurrency;
 
-import accountstreatments.AtmAvailableFunds;
-import interfaces.ICurrency;
+
+
 
 import java.util.Map;
 
