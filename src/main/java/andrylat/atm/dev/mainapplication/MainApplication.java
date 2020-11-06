@@ -1,9 +1,9 @@
-package andrylat.atm.mainapplication;
+package andrylat.atm.dev.mainapplication;
 
 
-import andrylat.atm.accountstreatments.AtmAvailableFunds;
-import andrylat.atm.factories.AtmCurrencyFactory;
-import andrylat.atm.interfaces.CurrencyInterface;
+import andrylat.atm.dev.accountstreatments.AtmAvailableFunds;
+import andrylat.atm.dev.factories.AtmCurrencyFactory;
+import andrylat.atm.dev.interfaces.CurrencyInterface;
 
 import java.util.Map;
 import java.util.Scanner;
