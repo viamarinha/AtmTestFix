@@ -1,8 +1,6 @@
-package andrylat.atm.dev.bankingCurrency;
+package andrylat.atm.bankingCurrency;
 
-
-import andrylat.atm.dev.interfaces.CurrencyInterface;
-
+import andrylat.atm.interfaces.CurrencyInterface;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -10,15 +8,15 @@ public class Currency implements CurrencyInterface {
 
     private int totalAvailableAmount;
 
-    int initHundredGroup = 0;
-    int initFiftyGroup = 0;
-    int initTenGroup = 0;
-    int initFiveGroup = 0;
+    private int initHundredGroup = 0;
+    private int initFiftyGroup = 0;
+    private int initTenGroup = 0;
+    private int initFiveGroup = 0;
 
-    int initHundredGroupRes = 0;
-    int initFiftyGroupRes = 0;
-    int initTenGroupRes = 0;
-    int initFiveGroupRes = 0;
+    private int initHundredGroupRes = 0;
+    private int initFiftyGroupRes = 0;
+    private int initTenGroupRes = 0;
+    private int initFiveGroupRes = 0;
 
     private int totalAmount = 0;
 
