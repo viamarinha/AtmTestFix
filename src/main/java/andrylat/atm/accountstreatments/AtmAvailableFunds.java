@@ -1,4 +1,4 @@
-package andrylat.atm.dev.accountstreatments;
+package andrylat.atm.accountstreatments;
 
 import java.util.HashMap;
 import java.util.Map;
